@@ -1,8 +1,9 @@
 #region movimento
 
 pega_input()
-movimento();
 checa_chao();
+movimento();
+ativa_debug();
 
 #endregion
 
