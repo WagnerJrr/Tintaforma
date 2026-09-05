@@ -18,11 +18,14 @@ right =     0;
 left =      0;
 jump =      0;
 
+//estados
+estado = noone;
+
 #endregion
 
 #region metodos
 
-//coletando inputs-----
+//Coletando inputs-----
 pega_input = function()
 {
     right = keyboard_check(ord("D")) or keyboard_check(vk_right);
@@ -32,14 +35,46 @@ pega_input = function()
 }
 
 
-//checa chao-----
+//Checa chao-----
 checa_chao = function()
 {
     chao = place_meeting(x, y+1, obj_parede);
 }
 
+//Maquina de estado-----
+estado_parado = function()
+{
+    image_blend = c_red;
+}
 
-//metodo de movimentação-----
+estado_movendo = function()
+{
+    image_blend = c_blue;
+}
+
+estado_pulo = function()
+{
+    image_blend = c_yellow;
+}
+
+maquina_estado = function()
+{
+    if(velh==0 and velv==0)
+    {
+        estado = estado_parado()
+    }
+    else if(velh >= 0.5 or velh <= -0.5)
+    {
+        estado = estado_movendo();
+    }
+    else if(velv <= 0.5)
+    {
+        estado = estado_pulo()
+    }
+}
+
+
+//Metodo de movimentação-----
 movimento = function()
 {
     //aplicando os inputs na velh
@@ -70,12 +105,12 @@ movimento = function()
     move_and_collide(velh, 0, obj_parede, 24);
     
     //mv and colide para colisao vertical
-    move_and_collide(0, velv, obj_parede, 12);
+    move_and_collide(0, velv, obj_parede, 24);
 }
 
 view_player = noone
 
-//metodo de debug-----
+//Metodo de debug-----
 roda_debug = function()
 {
     //se nao ta com debug ativado, retorna
@@ -132,3 +167,5 @@ ativa_debug = function()
 
 #endregion
 
+//Definindo estado atual do player
+estado = estado_parado;
