@@ -45,11 +45,13 @@ checa_chao = function()
 estado_parado = function()
 {
     image_blend = c_red;
+    sprite_index = spr_player_idle
 }
 
 estado_movendo = function()
 {
     image_blend = c_blue;
+    sprite_index = spr_correr
 }
 
 estado_pulo = function()
@@ -79,6 +81,16 @@ movimento = function()
 {
     //aplicando os inputs na velh
     velh = (right - left) * max_velh;
+    
+    //olha para adireção que esta se movendo
+    if(left)
+    {
+        image_xscale = -1
+    }
+    else if(right)
+    {
+        image_xscale = 1
+    }
     
     //aplicando a gravidade
     //se nao estou tocando no chao aplico a grav na velv
