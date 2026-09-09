@@ -30,7 +30,7 @@ pega_input = function()
 {
     right = keyboard_check(ord("D")) or keyboard_check(vk_right);
     left = keyboard_check(ord("A")) or keyboard_check(vk_left);
-    jump = keyboard_check_pressed(vk_space);
+    jump = keyboard_check(vk_space);
     debug_ative = keyboard_check_pressed(vk_tab);
 }
 
@@ -41,56 +41,105 @@ checa_chao = function()
     chao = place_meeting(x, y+1, obj_parede);
 }
 
+movimento = function()
+{
+    //usando o move and colide para colisão horizontal
+    move_and_collide(velh, 0, obj_parede, 24);
+    
+    //mv and colide para colisao vertical
+    move_and_collide(0, velv, obj_parede, 24);
+}
+
+troca_sprite = function(spr1 = spr_player_idle)
+{
+    //checando se ainda nao estou com a sprite correta
+    //definindo a sprite
+    if(sprite_index != spr1)
+    {
+        sprite_index = spr1;
+        //zero a animação
+        image_index = 0;
+    }
+}
+
 //Maquina de estado-----
 estado_parado = function()
 {
-    image_blend = c_red;
-    sprite_index = spr_player_idle
+    troca_sprite(spr_player_idle)
+    
+    //se eu andar mudo de estado
+    if(right != left)
+    {
+       estado = estado_movendo; 
+    }
+    
+    //se pulei mudo o estado
+    if(jump)
+    {
+        estado = estado_pulo;
+    }
+    
+    //se nao estou no chao estou no estado de pulo
+    if(!chao)
+    {
+        estado = estado_pulo;
+    }
 }
 
 estado_movendo = function()
 {
-    image_blend = c_blue;
-    sprite_index = spr_correr
-}
-
-estado_pulo = function()
-{
-    image_blend = c_yellow;
-}
-
-maquina_estado = function()
-{
-    if(velh==0 and velv==0)
+    aplica_velocidade();
+    troca_sprite(spr_correr)
+    
+    //se nao estou me movendo, estou parado
+    if(velh ==0)
     {
-        estado = estado_parado()
+        estado = estado_parado;
     }
-    else if(velh >= 0.5 or velh <= -0.5)
+    
+    //se pulei mudo o estado
+    if(jump)
     {
-        estado = estado_movendo();
+        estado = estado_pulo;
     }
-    else if(velv <= 0.5)
-    {
-        estado = estado_pulo()
-    }
-}
-
-
-//Metodo de movimentação-----
-movimento = function()
-{
-    //aplicando os inputs na velh
-    velh = (right - left) * max_velh;
     
     //olha para adireção que esta se movendo
     if(left)
     {
-        image_xscale = -1
+        image_xscale = -1;
     }
     else if(right)
     {
-        image_xscale = 1
+        image_xscale = 1;
     }
+}
+
+estado_pulo = function()
+{
+    aplica_velocidade();
+    
+    //se minha velv é menor que zero estou subindo, se não estou descendo
+    if(velv < 0)
+    {
+        troca_sprite(spr_pulo);
+    }
+    else 
+    {
+        troca_sprite(spr_queda);
+    }
+    
+    //se toquei no chao mudo para o estado parado
+    if(chao)
+    {
+        estado = estado_parado;
+    }
+}
+
+//Metodo de movimentação-----
+aplica_velocidade = function()
+{
+    //aplicando os inputs na velh
+    velh = (right - left) * max_velh;
     
     //aplicando a gravidade
     //se nao estou tocando no chao aplico a grav na velv
@@ -112,12 +161,6 @@ movimento = function()
             velv = -max_velv;
         }
     }
-    
-    //usando o move and colide para colisão horizontal
-    move_and_collide(velh, 0, obj_parede, 24);
-    
-    //mv and colide para colisao vertical
-    move_and_collide(0, velv, obj_parede, 24);
 }
 
 view_player = noone

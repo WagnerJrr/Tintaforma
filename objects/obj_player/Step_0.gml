@@ -3,11 +3,10 @@
 pega_input()
 checa_chao();
 movimento();
-
 ativa_debug();
 
-//rodando estado
-maquina_estado();
+//rodando maquina de estado
+estado();
 
 #endregion
 
