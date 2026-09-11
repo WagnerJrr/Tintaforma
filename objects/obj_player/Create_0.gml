@@ -30,10 +30,9 @@ pega_input = function()
 {
     right = keyboard_check(ord("D")) or keyboard_check(vk_right);
     left = keyboard_check(ord("A")) or keyboard_check(vk_left);
-    jump = keyboard_check(vk_space);
+    jump = keyboard_check_pressed(vk_space);
     debug_ative = keyboard_check_pressed(vk_tab);
 }
-
 
 //Checa chao-----
 checa_chao = function()
@@ -41,6 +40,37 @@ checa_chao = function()
     chao = place_meeting(x, y+1, obj_parede);
 }
 
+//Metodo de movimentação-----
+aplica_velocidade = function()
+{
+    checa_chao()
+    
+    //aplicando os inputs na velh
+    velh = (right - left) * max_velh;
+    
+    //aplicando a gravidade
+    //se nao estou tocando no chao aplico a grav na velv
+    //se estou, zero a velv
+    if(!chao)
+    {
+        velv += grav;
+    }
+    else 
+    {
+        velv = 0;
+        
+        //arredondando posição do y do player para que ele não entre no chao
+        y=  round(y);
+        
+        //pulando
+        if(jump)
+        {
+            velv = -max_velv;
+        }
+    }
+}
+
+//movimento-----
 movimento = function()
 {
     //usando o move and colide para colisão horizontal
@@ -50,6 +80,7 @@ movimento = function()
     move_and_collide(0, velv, obj_parede, 24);
 }
 
+//Sprite-----
 troca_sprite = function(spr1 = spr_player_idle)
 {
     //checando se ainda nao estou com a sprite correta
@@ -62,10 +93,22 @@ troca_sprite = function(spr1 = spr_player_idle)
     }
 }
 
+//troca_estado_powerup
+acabou_animacao = function()
+{
+    //quando a animação acabar eu mudo de estado
+    var _spd = sprite_get_speed(sprite_index) / FPS
+    if(image_index + _spd >= image_number)
+    {
+        return true
+    }
+}
+
 //Maquina de estado-----
 estado_parado = function()
 {
-    troca_sprite(spr_player_idle)
+    troca_sprite(spr_player_idle);
+    aplica_velocidade();
     
     //se eu andar mudo de estado
     if(right != left)
@@ -89,7 +132,7 @@ estado_parado = function()
 estado_movendo = function()
 {
     aplica_velocidade();
-    troca_sprite(spr_correr)
+    troca_sprite(spr_correr);
     
     //se nao estou me movendo, estou parado
     if(velh ==0)
@@ -135,31 +178,53 @@ estado_pulo = function()
     }
 }
 
-//Metodo de movimentação-----
-aplica_velocidade = function()
+estado_powerup_inicio = function()
 {
-    //aplicando os inputs na velh
-    velh = (right - left) * max_velh;
+    troca_sprite(spr_powerup_inicio);
     
-    //aplicando a gravidade
-    //se nao estou tocando no chao aplico a grav na velv
-    //se estou, zero a velv
-    if(!chao)
+    if(acabou_animacao())
     {
-        velv += grav;
+        estado = estado_powerup_meio;
     }
-    else 
+}
+
+estado_powerup_meio = function()
+{
+    troca_sprite(spr_powerup_meio);
+    
+    if(acabou_animacao())
     {
-        velv = 0;
-        
-        //arredondando posição do y do player para que ele não entre no chao
-        y=  round(y);
-        
-        //pulando
-        if(jump)
-        {
-            velv = -max_velv;
-        }
+        estado = estado_powerup_final;
+    }
+}
+
+estado_powerup_final = function()
+{
+    troca_sprite(spr_powerup_final);
+    
+    if(acabou_animacao())
+    {
+        estado = estado_parado;
+    }
+}
+
+estado_entrando_tinta = function()
+{
+    troca_sprite(spr_tinta_entrar);
+    
+    if(acabou_animacao())
+    {
+        estado = estado_parado;
+    }
+}
+
+estado_saindo_tinta = function()
+{
+    troca_sprite(spr_tinta_sair)
+    
+    if(acabou_animacao())
+    {
+        estado = estado_parado;
     }
 }
 
@@ -223,4 +288,4 @@ ativa_debug = function()
 #endregion
 
 //Definindo estado atual do player
-estado = estado_parado;
+estado = estado_saindo_tinta;
