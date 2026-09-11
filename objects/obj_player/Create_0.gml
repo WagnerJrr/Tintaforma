@@ -40,6 +40,12 @@ checa_chao = function()
     chao = place_meeting(x, y+1, obj_parede);
 }
 
+//ajusta direção do player
+ajusta_escala = function()
+{
+    if(velh != 0) image_xscale = sign(velh)
+}
+
 //Metodo de movimentação-----
 aplica_velocidade = function()
 {
@@ -62,10 +68,11 @@ aplica_velocidade = function()
         //arredondando posição do y do player para que ele não entre no chao
         y=  round(y);
         
-        //pulando
+        //pulando e criando particula de pulo
         if(jump)
         {
             velv = -max_velv;
+            instance_create_layer(x, y, layer, obj_particula_pulo)
         }
     }
 }
@@ -145,16 +152,6 @@ estado_movendo = function()
     {
         estado = estado_pulo;
     }
-    
-    //olha para adireção que esta se movendo
-    if(left)
-    {
-        image_xscale = -1;
-    }
-    else if(right)
-    {
-        image_xscale = 1;
-    }
 }
 
 estado_pulo = function()
@@ -171,9 +168,11 @@ estado_pulo = function()
         troca_sprite(spr_queda);
     }
     
-    //se toquei no chao mudo para o estado parado
+    //se toquei no chao mudo para o estado parado e crio a particulo de pouso
     if(chao)
     {
+        //create_depth para decidir profundiade da particula de pulo
+        instance_create_depth(x, y, depth - 1, obj_particula_pouso)
         estado = estado_parado;
     }
 }
@@ -288,4 +287,4 @@ ativa_debug = function()
 #endregion
 
 //Definindo estado atual do player
-estado = estado_saindo_tinta;
+estado = estado_parado;

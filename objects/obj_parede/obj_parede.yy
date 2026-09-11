@@ -6,8 +6,8 @@
   "name":"obj_parede",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"colisao",
+    "path":"folders/Objetos/colisao.yy",
   },
   "parentObjectId":null,
   "persistent":false,

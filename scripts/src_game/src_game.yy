@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"src_game",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"src_game",
+  "parent":{
+    "name":"Tintaforma",
+    "path":"Tintaforma.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
