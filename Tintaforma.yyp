@@ -63,6 +63,7 @@
     {"id":{"name":"spr_pulo","path":"sprites/spr_pulo/spr_pulo.yy",},},
     {"id":{"name":"spr_queda","path":"sprites/spr_queda/spr_queda.yy",},},
     {"id":{"name":"spr_tinta_entrar","path":"sprites/spr_tinta_entrar/spr_tinta_entrar.yy",},},
+    {"id":{"name":"spr_tinta_loop","path":"sprites/spr_tinta_loop/spr_tinta_loop.yy",},},
     {"id":{"name":"spr_tinta_sair","path":"sprites/spr_tinta_sair/spr_tinta_sair.yy",},},
   ],
   "resourceType":"GMProject",

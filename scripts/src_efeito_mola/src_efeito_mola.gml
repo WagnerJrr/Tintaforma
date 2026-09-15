@@ -20,5 +20,5 @@ function retorna_mola(_qtd = .1)
 
 function desenha_efeito_mola()
 {
-    draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, image_blend, image_alpha)
+    draw_sprite_ext(sprite_index, image_index, x, y, xscale * dir, yscale, image_angle, image_blend, image_alpha)
 }

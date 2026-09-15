@@ -6,6 +6,8 @@ movimento();
 ajusta_escala();
 ativa_debug();
 
+retorna_mola();
+
 //rodando maquina de estado
 estado();
 

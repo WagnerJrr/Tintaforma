@@ -1,3 +1,6 @@
+//iniciando efeitos
+inicia_efeito_mola();
+
 #region variaveis
 
 //variaveis de movimento
@@ -6,6 +9,9 @@ max_velh =  1;
 
 velv =      0;
 max_velv =  4;
+
+//direção que estou olhando
+dir =       1;
 
 //gravidade
 grav =      0.2;
@@ -17,6 +23,7 @@ chao =      false;
 right =     0;
 left =      0;
 jump =      0;
+tinta =     0;
 
 //estados
 estado = noone;
@@ -31,6 +38,7 @@ pega_input = function()
     right = keyboard_check(ord("D")) or keyboard_check(vk_right);
     left = keyboard_check(ord("A")) or keyboard_check(vk_left);
     jump = keyboard_check_pressed(vk_space);
+    tinta = keyboard_check_pressed(ord("F"));
     debug_ative = keyboard_check_pressed(vk_tab);
 }
 
@@ -43,7 +51,7 @@ checa_chao = function()
 //ajusta direção do player
 ajusta_escala = function()
 {
-    if(velh != 0) image_xscale = sign(velh)
+    if(velh != 0) dir = sign(velh)
 }
 
 //Metodo de movimentação-----
@@ -127,7 +135,11 @@ estado_parado = function()
     if(jump)
     {
         estado = estado_pulo;
+        efeito_mola(.7, 1.3);
     }
+    
+    //usei habilidade da tinta
+    if(tinta) estado = estado_entrando_tinta;
     
     //se nao estou no chao estou no estado de pulo
     if(!chao)
@@ -151,6 +163,7 @@ estado_movendo = function()
     if(jump)
     {
         estado = estado_pulo;
+        efeito_mola(.7, 1.3);
     }
 }
 
@@ -173,6 +186,7 @@ estado_pulo = function()
     {
         //create_depth para decidir profundiade da particula de pulo
         instance_create_depth(x, y, depth - 1, obj_particula_pouso)
+        efeito_mola(1, .6)
         estado = estado_parado;
     }
 }
@@ -213,8 +227,16 @@ estado_entrando_tinta = function()
     
     if(acabou_animacao())
     {
-        estado = estado_parado;
+        estado = estado_tinta;
     }
+}
+
+estado_tinta = function()
+{
+    aplica_velocidade();
+    troca_sprite(spr_tinta_loop);
+    
+    if(tinta) estado = estado_saindo_tinta;
 }
 
 estado_saindo_tinta = function()
