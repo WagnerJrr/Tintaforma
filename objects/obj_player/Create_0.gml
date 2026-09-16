@@ -163,6 +163,15 @@ estado_movendo = function()
         estado = estado_parado;
     }
     
+     //usei habilidade da tinta
+    if(tinta)
+    {
+        velh = 0; 
+        
+        instance_create_depth(x, y, depth - 1, obj_entrar_tinta_particula);
+        estado = estado_entrando_tinta;
+    }
+    
     //se pulei mudo o estado
     if(jump)
     {
@@ -243,13 +252,9 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
-    if(chao)
+    if(!place_meeting(x+15, y+1,obj_parede) or !place_meeting(x-2, y+1,obj_parede))
     {
-        velv = 0
-    }
-    else
-    {
-        velv += grav
+        velh *= 0;
     }
     
     //se apertei o botao de ação, saio da tinta e crio a particula 
