@@ -80,7 +80,6 @@ aplica_velocidade = function()
         if(jump)
         {
             velv = -max_velv;
-            instance_create_layer(x, y, layer, obj_particula_pulo)
         }
     }
 }
@@ -135,11 +134,16 @@ estado_parado = function()
     if(jump)
     {
         estado = estado_pulo;
+        instance_create_layer(x, y, layer, obj_particula_pulo)
         efeito_mola(.7, 1.3);
     }
     
     //usei habilidade da tinta
-    if(tinta) estado = estado_entrando_tinta;
+    if(tinta)
+    {
+        instance_create_depth(x, y, depth - 1, obj_entrar_tinta_particula);
+        estado = estado_entrando_tinta;
+    }
     
     //se nao estou no chao estou no estado de pulo
     if(!chao)
@@ -163,6 +167,7 @@ estado_movendo = function()
     if(jump)
     {
         estado = estado_pulo;
+        instance_create_layer(x, y, layer, obj_particula_pulo)
         efeito_mola(.7, 1.3);
     }
 }
@@ -223,8 +228,10 @@ estado_powerup_final = function()
 
 estado_entrando_tinta = function()
 {
+    //trocando sprite
     troca_sprite(spr_tinta_entrar);
     
+    //acabou animação mudo para o estado de loop
     if(acabou_animacao())
     {
         estado = estado_tinta;
@@ -233,16 +240,34 @@ estado_entrando_tinta = function()
 
 estado_tinta = function()
 {
-    aplica_velocidade();
     troca_sprite(spr_tinta_loop);
+    aplica_velocidade();
     
-    if(tinta) estado = estado_saindo_tinta;
+    if(chao)
+    {
+        velv = 0
+    }
+    else
+    {
+        velv += grav
+    }
+    
+    //se apertei o botao de ação, saio da tinta e crio a particula 
+    if(tinta)
+    {
+        //zero a velocidade horiontal para ele nao se deslocar enquanto sai da tinta
+        velh = 0 
+        
+        instance_create_depth(x, y, depth - 1, obj_sair_tinta_particula);
+        estado = estado_saindo_tinta;
+    }
 }
 
 estado_saindo_tinta = function()
 {
     troca_sprite(spr_tinta_sair)
     
+    //acabou a animação volto para o estado de parado
     if(acabou_animacao())
     {
         estado = estado_parado;
