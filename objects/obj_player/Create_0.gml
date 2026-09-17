@@ -252,9 +252,13 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
-    if(!place_meeting(x+15, y+1,obj_parede) or !place_meeting(x-2, y+1,obj_parede))
+    if(chao)
     {
-        velh *= 0;
+        velv = 0
+    }
+    else
+    {
+        velv += grav
     }
     
     //se apertei o botao de ação, saio da tinta e crio a particula 
