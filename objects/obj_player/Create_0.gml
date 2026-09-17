@@ -10,6 +10,11 @@ max_velh =  1;
 velv =      0;
 max_velv =  4;
 
+//colisao
+//pegando tileset
+var _tile = layer_tilemap_get_id("tl_level")
+colisoes = [obj_parede, _tile]
+
 //direção que estou olhando
 dir =       1;
 
@@ -45,7 +50,7 @@ pega_input = function()
 //Checa chao-----
 checa_chao = function()
 {
-    chao = place_meeting(x, y+1, obj_parede);
+    chao = place_meeting(x, y+1, colisoes);
 }
 
 //ajusta direção do player
@@ -88,10 +93,10 @@ aplica_velocidade = function()
 movimento = function()
 {
     //usando o move and colide para colisão horizontal
-    move_and_collide(velh, 0, obj_parede, 24);
+    move_and_collide(velh, 0, colisoes, 24);
     
     //mv and colide para colisao vertical
-    move_and_collide(0, velv, obj_parede, 24);
+    move_and_collide(0, velv, colisoes, 24);
 }
 
 //Sprite-----
@@ -179,6 +184,12 @@ estado_movendo = function()
         instance_create_layer(x, y, layer, obj_particula_pulo)
         efeito_mola(.7, 1.3);
     }
+    
+    //se nao estou no chao estou no estado de pulo
+    if(!chao)
+    {
+        estado = estado_pulo;
+    }
 }
 
 estado_pulo = function()
@@ -252,13 +263,16 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
+    var _parar = !place_meeting(x + sprite_width * dir + velh, y +1, colisoes)
+    
+    if(_parar)
+    {
+        velh = 0;
+    }
+    
     if(chao)
     {
-        velv = 0
-    }
-    else
-    {
-        velv += grav
+        velv = 0;
     }
     
     //se apertei o botao de ação, saio da tinta e crio a particula 
