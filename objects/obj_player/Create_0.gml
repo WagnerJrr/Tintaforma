@@ -263,7 +263,7 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
-    var _parar = !place_meeting(x + sprite_width * dir + velh, y +1, colisoes)
+    var _parar = !place_meeting(x + (velh * 18), y + 1, colisoes)
     
     if(_parar)
     {
