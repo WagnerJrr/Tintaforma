@@ -87,6 +87,10 @@ aplica_velocidade = function()
             velv = -max_velv;
         }
     }
+    
+    //limitando a velv
+    //clamp vai manter o valor de velv entre o min e o max 
+    velv = clamp(velv, -max_velv, max_velv)
 }
 
 //movimento-----
