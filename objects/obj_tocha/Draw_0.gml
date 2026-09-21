@@ -1,3 +1,4 @@
+//desenhando tocha
 draw_self()
 
 //desenhando brilho
