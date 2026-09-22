@@ -1,0 +1,25 @@
+{
+  "$GMParticleSystem":"",
+  "%Name":"ps_brilho_chama",
+  "backdropHeight":18,
+  "backdropImageOpacity":0.5,
+  "backdropImagePath":"C:\\GameMaker\\Tintaforma\\Assets\\Assets\\Cenário\\Decoração\\Tocha.gif",
+  "backdropWidth":6,
+  "backdropXOffset":0.0,
+  "backdropYOffset":0.0,
+  "drawOrder":0,
+  "emitters":[
+    {"$GMPSEmitter":"","%Name":"fogo","additiveBlend":true,"directionIncrease":0.0,"directionMax":70.0,"directionMin":70.0,"directionWiggle":30.0,"distribution":0,"editorColour":16777215,"editorDrawShape":true,"emitCount":-30,"emitDelayMax":0.0,"emitDelayMin":0.0,"emitDelayUnits":0,"emitIntervalMax":0.0,"emitIntervalMin":0.0,"emitIntervalUnits":0,"enabled":true,"endColour":45823,"GMPresetName":"","gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":100.0,"lifetimeMin":60.0,"linkedEmitter":null,"locked":false,"midColour":4278227199,"mode":0,"name":"fogo","orientationIncrease":0.0,"orientationMax":270.0,"orientationMin":90.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":5.332016,"regionW":5.343483,"regionX":0.0,"regionY":-1.0,"resourceType":"GMPSEmitter","resourceVersion":"2.0","scaleX":0.04,"scaleY":0.04,"shape":0,"sizeIncrease":-0.01,"sizeMax":1.0,"sizeMin":1.0,"sizeWiggle":0.0,"spawnOnDeathCount":0,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":0,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.01,"speedMax":0.0,"speedMin":0.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":4278245631,"texture":7,},
+  ],
+  "name":"ps_brilho_chama",
+  "parent":{
+    "name":"Particulas",
+    "path":"folders/Particulas.yy",
+  },
+  "resourceType":"GMParticleSystem",
+  "resourceVersion":"2.0",
+  "showBackdrop":true,
+  "showBackdropImage":true,
+  "xorigin":0,
+  "yorigin":1,
+}
