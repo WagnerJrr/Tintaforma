@@ -41,7 +41,9 @@
   ],
   "IncludedFiles":[],
   "isEcma":false,
-  "LibraryEmitters":[],
+  "LibraryEmitters":[
+    {"name":"fogo1","path":"particlelib/fogo1/fogo1.yy",},
+  ],
   "MetaData":{
     "IDEVersion":"2026.0.0.16",
   },
