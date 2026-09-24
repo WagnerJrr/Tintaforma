@@ -50,7 +50,7 @@
   "sizeIncrease":-0.01,
   "sizeMax":1.0,
   "sizeMin":1.0,
-  "sizeWiggle":0.0,
+  "sizeWiggle":0.01,
   "spawnOnDeathCount":0,
   "spawnOnDeathGMPreset":null,
   "spawnOnDeathId":null,

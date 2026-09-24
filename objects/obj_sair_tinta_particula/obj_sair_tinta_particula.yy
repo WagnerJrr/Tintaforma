@@ -9,8 +9,8 @@
   "name":"obj_sair_tinta_particula",
   "overriddenProperties":[],
   "parent":{
-    "name":"player",
-    "path":"folders/Objetos/player.yy",
+    "name":"particulas",
+    "path":"folders/Objetos/particulas.yy",
   },
   "parentObjectId":null,
   "persistent":false,
