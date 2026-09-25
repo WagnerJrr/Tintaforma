@@ -9,7 +9,10 @@
     "name":"level",
     "path":"folders/Objetos/level.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_parede",
+    "path":"objects/obj_parede/obj_parede.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_dado",
+    "path":"sprites/spr_dado/spr_dado.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
