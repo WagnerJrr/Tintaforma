@@ -28,6 +28,7 @@ chao =      false;
 right =     0;
 left =      0;
 jump =      0;
+down =      0;
 tinta =     0;
 
 //estados
@@ -43,6 +44,7 @@ pega_input = function()
     right = keyboard_check(ord("D")) or keyboard_check(vk_right);
     left = keyboard_check(ord("A")) or keyboard_check(vk_left);
     jump = keyboard_check_pressed(vk_space);
+    down = keyboard_check(ord("S")) or keyboard_check(vk_down);
     tinta = keyboard_check_pressed(ord("F"));
     debug_ative = keyboard_check_pressed(vk_tab);
 }
@@ -147,6 +149,12 @@ estado_parado = function()
         efeito_mola(.7, 1.3);
     }
     
+    //caindo das plataformas
+    if(down) 
+    {
+        colisoes[2] = 0
+    }
+    
     //usei habilidade da tinta
     if(tinta)
     {
@@ -204,10 +212,31 @@ estado_pulo = function()
     if(velv < 0)
     {
         troca_sprite(spr_pulo);
+        
+        //se o objeto existe no meu array eu excluo ele
+        if(array_contains(colisoes, obj_parede_oneway))
+        {
+            //pegando id do obj
+            var _ind = array_get_index(colisoes, obj_parede_oneway);
+            
+            array_delete(colisoes, _ind, 1)
+        }
     }
     else 
     {
         troca_sprite(spr_queda);
+        
+        //se nao estou colidindo, e se nao estou apertanto para baixo então:
+        if(!place_meeting(x, y, obj_parede_oneway) and !down)
+        {
+            //se o objeto nao existe no array e crio ele
+            if(!array_contains(colisoes, obj_parede_oneway))
+            {
+                array_push(colisoes, obj_parede_oneway);
+            }
+            
+            //colisoes[2] = obj_parede_one_way
+        }
     }
     
     //se toquei no chao mudo para o estado parado e crio a particulo de pouso

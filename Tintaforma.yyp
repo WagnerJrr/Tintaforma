@@ -55,6 +55,7 @@
     {"id":{"name":"obj_cavalete","path":"objects/obj_cavalete/obj_cavalete.yy",},},
     {"id":{"name":"obj_dado","path":"objects/obj_dado/obj_dado.yy",},},
     {"id":{"name":"obj_entrar_tinta_particula","path":"objects/obj_entrar_tinta_particula/obj_entrar_tinta_particula.yy",},},
+    {"id":{"name":"obj_parede_oneway","path":"objects/obj_parede_oneway/obj_parede_oneway.yy",},},
     {"id":{"name":"obj_parede","path":"objects/obj_parede/obj_parede.yy",},},
     {"id":{"name":"obj_particula_pouso","path":"objects/obj_particula_pouso/obj_particula_pouso.yy",},},
     {"id":{"name":"obj_particula_pulo","path":"objects/obj_particula_pulo/obj_particula_pulo.yy",},},
