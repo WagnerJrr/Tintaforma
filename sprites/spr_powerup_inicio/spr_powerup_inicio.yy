@@ -31,8 +31,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"power up",
-    "path":"folders/Sprites/Player/power up.yy",
+    "name":"player_powerup",
+    "path":"folders/Sprites/Player/power up/player_powerup.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

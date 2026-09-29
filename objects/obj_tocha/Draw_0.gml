@@ -1,5 +1,5 @@
 //variando a escala da tocha
-var _tocha = random_range(0, 0.02)
+var _tocha = random_range(0, 0.015)
 
 //desenhando brilho
 gpu_set_blendmode(bm_add);

@@ -150,9 +150,16 @@ estado_parado = function()
     }
     
     //caindo das plataformas
+    //se apertei para baixo
     if(down) 
     {
-        colisoes[2] = 0
+        //se meu array tiver o obj parede oneway
+        if(array_contains(colisoes, obj_parede_oneway))
+        {
+            //deleta ele da lista de colisao para que eu possa cair
+            var _ind = array_get_index(colisoes, obj_parede_oneway);
+            array_delete(colisoes, _ind, 1)
+        }
     }
     
     //usei habilidade da tinta
@@ -251,6 +258,7 @@ estado_pulo = function()
 
 estado_powerup_inicio = function()
 {
+    velh = 0;
     troca_sprite(spr_powerup_inicio);
     
     if(acabou_animacao())
@@ -275,6 +283,8 @@ estado_powerup_final = function()
     
     if(acabou_animacao())
     {
+        //destroi obj power de cima do player e muda estado
+        instance_destroy(obj_powerup_get);
         estado = estado_parado;
     }
 }
