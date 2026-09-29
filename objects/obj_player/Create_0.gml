@@ -129,6 +129,12 @@ acabou_animacao = function()
     }
 }
 
+//pegando power up
+pega_powerup = function()
+{
+    estado = estado_powerup_inicio;
+}
+
 //Maquina de estado-----
 estado_parado = function()
 {
@@ -283,8 +289,6 @@ estado_powerup_final = function()
     
     if(acabou_animacao())
     {
-        //destroi obj power de cima do player e muda estado
-        instance_destroy(obj_powerup_get);
         estado = estado_parado;
     }
 }
