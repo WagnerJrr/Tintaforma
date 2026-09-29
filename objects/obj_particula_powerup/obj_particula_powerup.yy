@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_powerup_get",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_particula_powerup",
+  "eventList":[],
   "managed":true,
-  "name":"obj_powerup_get",
+  "name":"obj_particula_powerup",
   "overriddenProperties":[],
   "parent":{
-    "name":"level",
-    "path":"folders/Objetos/level.yy",
+    "name":"particulas",
+    "path":"folders/Objetos/particulas.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_powerup",
-    "path":"sprites/spr_powerup/spr_powerup.yy",
+    "name":"spr_particula_powerup",
+    "path":"sprites/spr_particula_powerup/spr_particula_powerup.yy",
   },
   "spriteMaskId":null,
   "visible":true,
