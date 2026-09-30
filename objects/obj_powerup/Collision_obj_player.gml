@@ -8,4 +8,5 @@ if(alvo == noone)
     alvo = other.id;
     
     movendo();
+    explosao();
 }
