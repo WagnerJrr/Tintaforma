@@ -23,6 +23,7 @@ grav =      0.2;
 
 //variaveis do level
 chao =      false;
+powerup =     false;
 
 //variaveis de input
 right =     0;
@@ -169,7 +170,7 @@ estado_parado = function()
     }
     
     //usei habilidade da tinta
-    if(tinta)
+    if(tinta and powerup)
     {
         instance_create_depth(x, y, depth - 1, obj_entrar_tinta_particula);
         estado = estado_entrando_tinta;
@@ -194,7 +195,7 @@ estado_movendo = function()
     }
     
      //usei habilidade da tinta
-    if(tinta)
+    if(tinta and powerup)
     {
         velh = 0; 
         
@@ -277,7 +278,7 @@ estado_powerup_meio = function()
 {
     troca_sprite(spr_powerup_meio);
     
-    if(acabou_animacao())
+    if(acabou_animacao() and !instance_exists(obj_particula_powerup))
     {
         estado = estado_powerup_final;
     }
