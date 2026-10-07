@@ -169,8 +169,13 @@ estado_parado = function()
         }
     }
     
-    //usei habilidade da tinta
-    if(tinta and powerup)
+    
+    //verificando se estou no tile da tinta
+    var _tintaid = layer_tilemap_get_id("tl_tinta")
+    var _tltinta = place_meeting(x, y + 1, _tintaid)
+    
+    //se estou no tile da tinta e usei habilidade da tinta entrei no estado da tinta
+    if(tinta and powerup and _tltinta)
     {
         instance_create_depth(x, y, depth - 1, obj_entrar_tinta_particula);
         estado = estado_entrando_tinta;
@@ -311,13 +316,18 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
-    var _parar = !place_meeting(x + (velh * 18), y + 1, colisoes)
+    //pegando id da layer da tinta
+    var _tinta = layer_tilemap_get_id("tl_tinta")
+    
+    //se tiver na borda da tinta ele para
+    var _parar = !place_meeting(x + (velh * 18), y + 1, _tinta)
     
     if(_parar)
     {
         velh = 0;
     }
     
+    //se tiver no chao velv é zerada
     if(chao)
     {
         velv = 0;
