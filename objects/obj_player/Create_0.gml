@@ -13,7 +13,7 @@ max_velv =  4;
 //colisao
 //pegando tileset
 var _tile = layer_tilemap_get_id("tl_level")
-colisoes = [obj_parede, _tile]
+colisoes = [obj_parede, _tile, obj_cavalete]
 
 //direção que estou olhando
 dir =       1;
@@ -141,6 +141,9 @@ estado_parado = function()
 {
     troca_sprite(spr_player_idle);
     aplica_velocidade();
+    
+    //setando colisao padrao
+    mask_index = spr_player_idle
     
     //se eu andar mudo de estado
     if(right != left)
@@ -316,6 +319,9 @@ estado_tinta = function()
     troca_sprite(spr_tinta_loop);
     aplica_velocidade();
     
+    //trocando colisao
+    mask_index = spr_tinta_loop;
+    
     //pegando id da layer da tinta
     var _tinta = layer_tilemap_get_id("tl_tinta")
     
@@ -334,7 +340,7 @@ estado_tinta = function()
     }
     
     //se apertei o botao de ação, saio da tinta e crio a particula 
-    if(tinta)
+    if(tinta and !place_meeting(x, y - 7, colisoes))
     {
         //zero a velocidade horiontal para ele nao se deslocar enquanto sai da tinta
         velh = 0 

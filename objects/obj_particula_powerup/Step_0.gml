@@ -44,6 +44,9 @@ else
             efeito_mola(1.1, 1.2);
         }
         
+        //dando um screenshake
+        screenshake(0.6)
+        
         instance_destroy();
     }
 }
