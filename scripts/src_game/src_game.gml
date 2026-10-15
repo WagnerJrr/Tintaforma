@@ -9,4 +9,6 @@
 
 global.debug = false
 
+global.contador_chave = 0;
+
 #endregion
