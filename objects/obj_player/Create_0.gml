@@ -106,6 +106,18 @@ movimento = function()
     move_and_collide(0, velv, colisoes, 24);
 }
 
+//colidiu com a porta-----
+porta = function() 
+{
+    var _porta = instance_place(x + velh, y, obj_porta)
+
+   if(_porta and global.contador_chave >= 1)
+   {
+       global.contador_chave -= 1;
+       instance_destroy(_porta)
+   }
+}
+
 //Sprite-----
 troca_sprite = function(spr1 = spr_player_idle)
 {
@@ -195,6 +207,7 @@ estado_movendo = function()
 {
     aplica_velocidade();
     troca_sprite(spr_correr);
+    porta()
     
     //se nao estou me movendo, estou parado
     if(velh ==0)
