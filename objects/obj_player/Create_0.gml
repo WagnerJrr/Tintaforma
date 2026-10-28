@@ -113,8 +113,9 @@ porta = function()
 
    if(_porta and global.contador_chave >= 1)
    {
-       global.contador_chave -= 1;
-       instance_destroy(_porta)
+        _porta.estado = _porta.estado_abrindo;
+        
+        screenshake(10)
    }
 }
 

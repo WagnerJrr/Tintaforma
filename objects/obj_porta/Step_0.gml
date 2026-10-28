@@ -1,0 +1,2 @@
+//chamando o estado
+estado();

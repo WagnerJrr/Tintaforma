@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_chave",
-    "path":"sprites/spr_chave/spr_chave.yy",
+    "name":"spr_chave_girando",
+    "path":"sprites/spr_chave_girando/spr_chave_girando.yy",
   },
   "spriteMaskId":null,
   "visible":true,
