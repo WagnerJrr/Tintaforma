@@ -23,7 +23,7 @@
   ],
   "name":"spr_porta",
   "nineSlice":null,
-  "origin":7,
+  "origin":4,
   "parent":{
     "name":"level",
     "path":"folders/Sprites/level.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":10,
-    "yorigin":32,
+    "yorigin":16,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

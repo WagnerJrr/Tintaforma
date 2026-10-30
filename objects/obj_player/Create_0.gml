@@ -114,8 +114,6 @@ porta = function()
    if(_porta and global.contador_chave >= 1)
    {
         _porta.estado = _porta.estado_abrindo;
-        
-        screenshake(10)
    }
 }
 

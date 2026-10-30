@@ -1,21 +1,36 @@
 //variaveis
-velv = 0
+velv = 0.5
 
 aberta = false
+ps = noone
 
 //funções
 
 //minha porta esta parada
 estado_parado = function () {
-    velv = 0
+    
 }
 
 //começou a abrir
 estado_abrindo = function () {
     
     //velocidade v diminui para a porta subir
-    velv = 1
     y -= velv
+    
+    //treme a tela
+    screenshake(3)
+    
+    //mexendo enquanto abro
+    x = xstart + random_range(-0.5, 0.5)
+    
+    //criando sistema de particula se ele nao existe
+    if(!part_system_exists(ps))
+    {
+        ps = part_system_create(ps_porta_abrir)
+        
+        //colocando ele na posição correta
+        part_system_position(ps, x, y)
+    }
     
     //se o estado dela era fechado ele excuta o código
     if(!aberta) 
