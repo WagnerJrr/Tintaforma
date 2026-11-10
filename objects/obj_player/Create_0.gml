@@ -48,6 +48,7 @@ pega_input = function()
     down = keyboard_check(ord("S")) or keyboard_check(vk_down);
     tinta = keyboard_check_pressed(ord("F"));
     debug_ative = keyboard_check_pressed(vk_tab);
+    restart = keyboard_check(ord("R"));
 }
 
 //Checa chao-----
@@ -199,6 +200,12 @@ estado_parado = function()
     if(!chao)
     {
         estado = estado_pulo;
+    }
+    
+    //reset
+    if(restart)
+    {
+        game_restart()
     }
 }
 
