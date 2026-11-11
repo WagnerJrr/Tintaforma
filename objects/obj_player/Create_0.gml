@@ -3,6 +3,10 @@ inicia_efeito_mola();
 
 #region variaveis
 
+//variaveis do brilho
+cor_brilho = noone
+alfa_brilho = 0
+
 //variaveis de movimento
 velh =      0;
 max_velh =  1;

@@ -50,7 +50,8 @@ estado_abrindo = function () {
     //}
     
     //criando a minha particula manualmente
-    part_particles_create(ps, x, y - 16, ptype1, 1)
+    var _x = x + random_range(-sprite_width / 2 , sprite_width / 2)
+    part_particles_create(ps, _x, ystart - 16, ptype1, 1)
     
     
     //se o estado dela era fechado ele excuta o código
@@ -64,15 +65,16 @@ estado_abrindo = function () {
     //se saiu da room me destruo
     if(y < 0) 
     {
-        //apagando particula
-        part_system_destroy(ps)
-        
         estado_aberta()
+        
+        //mudo o estado e executo o alarm em 1 segundo
+        alarm[0] = FPS
     }
 }
 
 estado_aberta = function () {
     instance_destroy()
+    
     aberta = false
 }
 
