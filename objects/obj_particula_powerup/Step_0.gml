@@ -45,6 +45,8 @@ else
         with(_player)
         {
             efeito_mola(1.1, 1.2);
+            
+            muda_brilho();
         }
         
         //dando um screenshake

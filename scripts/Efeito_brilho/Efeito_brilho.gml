@@ -1,36 +1,26 @@
-inicia_brilho = function ()
+function inicia_brilho()
 {
     //variaveis do brilho
-    cor_brilho = noone
-    alfa_brilho = 0
+    cor_brilho =    c_white
+    alfa_brilho =   0
+    
+    xscale =        1
+    yscale =        1
+    dir =           0
 }
 
-muda_brilho = function ()
+function muda_brilho(_cor = c_white, _valor = 1)
 {
-    if(keyboard_check(ord("B")))
-    {
-        cor_brilho = c_white
-    }
-    else if(keyboard_check(ord("C")))
-    {
-        cor_brilho = c_grey
-    }
-    else if(keyboard_check(ord("Y")))
-    {
-        cor_brilho = c_yellow
-    }
-    else if(keyboard_check(ord("K")))
-    {
-        alfa_brilho = 1
-    }
+    cor_brilho = _cor
+    alfa_brilho = _valor
 }
 
-volta_brilho = function ()
+function volta_brilho(_valor = .1)
 {
-    alfa_brilho = lerp(alfa_brilho, 0, .1)
+    alfa_brilho = lerp(alfa_brilho, 0, _valor)
 }
 
-desenha_brilho = function ()
+function desenha_brilho()
 {
     //desnhando brilho 
     shader_set(sh_brilho); 

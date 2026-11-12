@@ -3,9 +3,8 @@ inicia_efeito_mola();
 
 #region variaveis
 
-//variaveis do brilho
-cor_brilho = noone
-alfa_brilho = 0
+//iniciando brilho
+inicia_brilho();
 
 //variaveis de movimento
 velh =      0;
@@ -297,6 +296,8 @@ estado_pulo = function()
 estado_powerup_inicio = function()
 {
     velh = 0;
+    velv = 0;
+    
     troca_sprite(spr_powerup_inicio);
     
     if(acabou_animacao())
