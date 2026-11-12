@@ -1,0 +1,1 @@
+estado = estado_seta_roda2;
