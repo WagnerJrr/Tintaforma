@@ -113,6 +113,7 @@
     {"id":{"name":"spr_pulo","path":"sprites/spr_pulo/spr_pulo.yy",},},
     {"id":{"name":"spr_queda","path":"sprites/spr_queda/spr_queda.yy",},},
     {"id":{"name":"spr_sair_tinta_particulas","path":"sprites/spr_sair_tinta_particulas/spr_sair_tinta_particulas.yy",},},
+    {"id":{"name":"spr_semcolisao","path":"sprites/spr_semcolisao/spr_semcolisao.yy",},},
     {"id":{"name":"spr_tileset_level","path":"sprites/spr_tileset_level/spr_tileset_level.yy",},},
     {"id":{"name":"spr_tinta_entrar","path":"sprites/spr_tinta_entrar/spr_tinta_entrar.yy",},},
     {"id":{"name":"spr_tinta_loop","path":"sprites/spr_tinta_loop/spr_tinta_loop.yy",},},
