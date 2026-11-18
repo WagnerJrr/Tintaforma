@@ -126,9 +126,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_sala1","path":"rooms/rm_sala1/rm_sala1.yy",},},
     {"roomId":{"name":"rm_sala2","path":"rooms/rm_sala2/rm_sala2.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"rm_sala1","path":"rooms/rm_sala1/rm_sala1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
