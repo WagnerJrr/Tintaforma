@@ -34,9 +34,10 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"estado_inicial","filters":[],"listItems":[
-        "estado_seta_comeco",
-        "estado_seta_parada",
-      ],"multiselect":false,"name":"estado_inicial","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"estado_seta_comeco","varType":6,},
+        "\"estado_seta_comeco\"",
+        "\"estado_seta_parada\"",
+      ],"multiselect":false,"name":"estado_inicial","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"estado_seta_comeco\"","varType":6,},
+    {"$GMObjectProperty":"v2","%Name":"tempo","filters":[],"listItems":[],"multiselect":false,"name":"tempo","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"60","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

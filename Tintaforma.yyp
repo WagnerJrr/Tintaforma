@@ -76,6 +76,8 @@
     {"id":{"name":"obj_tocha","path":"objects/obj_tocha/obj_tocha.yy",},},
     {"id":{"name":"ps_brilho_chama","path":"particles/ps_brilho_chama/ps_brilho_chama.yy",},},
     {"id":{"name":"ps_porta_abrir","path":"particles/ps_porta_abrir/ps_porta_abrir.yy",},},
+    {"id":{"name":"rm_sala1","path":"rooms/rm_sala1/rm_sala1.yy",},},
+    {"id":{"name":"rm_sala2","path":"rooms/rm_sala2/rm_sala2.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Efeito_brilho","path":"scripts/Efeito_brilho/Efeito_brilho.yy",},},
     {"id":{"name":"scr_screenshake","path":"scripts/scr_screenshake/scr_screenshake.yy",},},
@@ -124,7 +126,9 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_sala2","path":"rooms/rm_sala2/rm_sala2.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_sala1","path":"rooms/rm_sala1/rm_sala1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

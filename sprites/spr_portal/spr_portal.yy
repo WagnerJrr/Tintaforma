@@ -3,7 +3,7 @@
   "%Name":"spr_portal",
   "bboxMode":2,
   "bbox_bottom":31,
-  "bbox_left":25,
+  "bbox_left":0,
   "bbox_right":31,
   "bbox_top":0,
   "collisionKind":1,
